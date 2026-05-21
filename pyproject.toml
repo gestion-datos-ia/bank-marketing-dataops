@@ -25,3 +25,17 @@ dev = [
     "pytest (>=9.0.3,<10.0.0)",
     "black (>=26.5.1,<27.0.0)"
 ]
+
+[tool.poetry]
+package-mode = false
+# ===================================
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "black (>=26.5.1,<27.0.0)"
+]
