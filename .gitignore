@@ -1,6 +1,5 @@
 # Entorno virtual de Poetry
 .venv/
-poetry.lock
 
 # Datos locales (Inmutables y pesados, prohibido subirlos)
 data/raw/*
