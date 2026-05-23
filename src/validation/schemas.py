@@ -1,23 +1,38 @@
-from pydantic import BaseModel
+import pandas as pd
+import os
 from src.utils.logger import logger
+from src.validation.structural import validar_estructura
+from src.validation.semantic import validar_semantica
 
-# Antes de codear leer buscar investigar sobre Pydantic y asi poder 
-# definir un contrato de validación para los datos que se van a procesar
-# url: https://pydantic-docs.helpmanual.io/usage/models/ 
-# TODO: En caso de querer usar Pydantic, definir un modelo de validación que 
-# refleje la estructura esperada de los datos.
-# Esto puede incluir tipos de datos, rangos permitidos, formatos específicos, etc.
 
-# En caso de que no pues arreglatelas como quieras solo que funcione
+def ejecutar_validacion(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    
+    logger.info("=============================================================")
+    logger.info("Iniciando validacion estructural y semantica de los datos...")
+    logger.info("=============================================================")
 
-def ejecutar_validacion():
-    logger.info("Iniciando validación estructural y semántica de los datos...")
 
-     # TODO: Anto (creo q tu hacias esto?): Aqui va el codigo
-
-    logger.info("Validación completada: Todos los registros cumplen el contrato.")
-
-    # En caso de error, se puede usar:
-    # logger.error("Mensaje de error detallado")
-    # pero para eso debes crear una condicion que detecte el error
-    # y asi no se imprima un falso exito de validacion
+    # Validacion estructural
+    estructura_ok = validar_estructura(df)
+    if not estructura_ok:
+        logger.error("La validacion estructural fallo. Deteniendo proceso.")
+        return pd.DataFrame(columns=df.columns), df
+    
+    
+    
+    # Validacion semantica
+    mascara_validos = validar_semantica(df)
+    
+    # Separacion de datos validos e invalidos
+    df_validos = df[mascara_validos].copy()
+    df_invalidos = df[~mascara_validos].copy()
+    
+    
+    # Logs para cerrar procesos
+    logger.info("Proceso de validacion finalizado.")
+    logger.info(f" -> Registros Totales Evaluados: {len(df)}")
+    logger.info(f" -> Registros VALIDOS (pasan al modelo): {len(df_validos)}")
+    logger.info(f" -> Registros INVALIDOS (enviados a cuarentena): {len(df_invalidos)}")
+    
+    
+    return df_validos, df_invalidos
