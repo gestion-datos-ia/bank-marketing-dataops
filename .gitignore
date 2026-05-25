@@ -2,7 +2,6 @@
 .venv/
 
 # Datos locales (Inmutables y pesados, prohibido subirlos)
-data/raw/*
 data/processed/*
 logs/*
 
