@@ -19,8 +19,9 @@ WORKDIR /app
 # 4. Copiar las configuraciones de dependencias
 COPY pyproject.toml poetry.lock* /app/
 
-# 5. CORREGIDO: Instalación nativa para Poetry 2.0 en modo no-paquete (sin --no-root)
+# 5. SOLUCIÓN: Forzamos la regeneración del lock dentro del contenedor antes de instalar
 RUN poetry config virtualenvs.create false \
+    && poetry lock \
     && poetry install --no-interaction --no-ansi
 
 # 6. Crear la estructura física de carpetas requerida por config.py
