@@ -9,3 +9,5 @@ logs/*
 # Archivos temporales de Python
 __pycache__/
 *.py[cod]
+
+.env
