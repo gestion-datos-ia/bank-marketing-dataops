@@ -56,11 +56,17 @@ poetry run python -m src.main
 
 ```
 
-Al ejecutarlo se crearán automáticamente las carpetas locales (`data/processed/` y `logs/`) y nacerá el archivo de bitácora diario, el cual sirve como la **evidencia técnica de ejecución sin errores** requerida para el informe.
-
-Para correr las pruebas locales automatizadas (Pytest) que también evalúa GitHub Actions, ejecuta:
+Para activar y correr el pipeline completo (ingesta, limpieza, validación y carga), ejecuta el siguiente comando en una terminal secundaria:
 
 ```bash
-poetry run pytest
+curl http://localhost:10000/run
 
 ```
+
+Una vez ejecutado el comando, el proceso correrá en segundo plano. Al finalizar, podrás verificar los resultados directamente en las siguientes carpetas del proyecto:
+
+    Carpeta logs/: Contiene el archivo de registro con el detalle técnico de todo el proceso ya realizado (ingesta, limpieza, validación y carga).
+
+    Carpetas raw/ y processed/: * En raw/ se almacena el dataset original descargado.
+
+        En processed/ se guarda el archivo CSV ya procesado y limpio.
