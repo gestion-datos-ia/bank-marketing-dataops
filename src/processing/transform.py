@@ -1,6 +1,7 @@
 import pandas as pd
 from src.config import RUTA_DATOS_RAW, RUTA_DATOS_PROCESSED
 from src.utils.logger import logger
+from src.utils.security import anonimizar_columna
 
 def ejecutar_limpieza():
     logger.info("Iniciando etapa de Limpieza y Transformación (Capa Plata)...")
