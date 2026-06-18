@@ -1,0 +1,1 @@
+# Este script sera para medir tiempos de ejecucion, uso de CPU y RAM

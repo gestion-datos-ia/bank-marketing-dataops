@@ -1,0 +1,1 @@
+# Este script es para generar graficos los resultados y metricas de la IA
