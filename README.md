@@ -18,27 +18,33 @@ Todo el flujo se orquesta y ejecuta en orden secuencial desde el archivo central
 
 Sigue estos comandos estrictamente en tu terminal para configurar el repositorio de forma local:
 
-### 1. Ingresar a la carpeta raíz del proyecto
+### 1. Instalar poetry
+```bash
+pip install poetry
+
+```
+
+### 2. Ingresar a la carpeta raíz del proyecto
 ```bash
 cd bank_marketing_dataops
 
 ```
 
-### 2. Configurar Poetry de forma local
+### 3. Configurar Poetry de forma local
 
 ```bash
 poetry config virtualenvs.in-project true
 
 ```
 
-### 3. Instalar dependencias del proyecto
+### 4. Instalar dependencias del proyecto
 
 ```bash
 poetry install
 
 ```
 
-### 4. Crear el archivo de configuración (.env)
+### 5. Crear el archivo de configuración (.env)
 
 ```bash
 cp .env.example .env
