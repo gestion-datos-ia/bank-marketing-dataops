@@ -2,10 +2,10 @@ import os
 import threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from src.utils.logger import logger
-from src.ingestion.ingest import ejecutar_ingesta
-from src.processing.transform import ejecutar_limpieza
-from src.validation.schemas import ejecutar_validacion
-from src.loading.load import ejecutar_carga
+from src.pipeline.ingestion.ingest import ejecutar_ingesta
+from src.pipeline.processing.transform import ejecutar_limpieza
+from src.pipeline.validation.schemas import ejecutar_validacion
+from src.pipeline.loading.load import ejecutar_carga
 
 class RenderFreeHandler(BaseHTTPRequestHandler):
     def do_GET(self):

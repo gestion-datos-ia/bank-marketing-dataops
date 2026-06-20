@@ -1,8 +1,8 @@
 import pandas as pd
 from src.config import RUTA_DATOS_PROCESSED
 from src.utils.logger import logger
-from src.validation.structural import validar_estructura
-from src.validation.semantic import validar_semantica
+from src.pipeline.validation.structural import validar_estructura
+from src.pipeline.validation.semantic import validar_semantica
 
 def ejecutar_validacion(df: pd.DataFrame = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     logger.info("=============================================================")
