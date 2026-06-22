@@ -1,1 +1,0 @@
-# Script para calcular métricas (Accuracy, Recall, Precision)
