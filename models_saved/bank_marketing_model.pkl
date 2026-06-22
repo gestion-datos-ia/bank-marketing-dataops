@@ -1,1 +1,0 @@
-# La carpeta de models_saved sirve para almacenar los archivos binarios entrenados (en formato .pkl)
