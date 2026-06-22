@@ -51,6 +51,13 @@ cp .env.example .env
 
 ```
 
+### 6. Ejecutar el dashboard del proyecto
+
+```bash
+poetry run streamlit run app.py
+
+```
+
 ---
 
 ## Cómo Probar la Infraestructura y los Tests
